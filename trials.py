@@ -8,10 +8,9 @@ def output_all_items(items):
 
 
 def get_all_evens(nums):
-    pass  # TODO: replace this line with your code
     even_nums = []
     for num in nums:
-        if num % 2 ==0:
+        if num % 2 == 0:
             even_nums.append(num)
 
     return even_nums
@@ -22,7 +21,7 @@ def get_odd_indices(items):
     odd_indices = []
 
     for i, item in enumerate(items):
-        if i % 2 !== 0:
+        if i % 2 != 0:
             odd_indices.append(item)
 
     return odd_indices    
@@ -39,10 +38,17 @@ def print_as_numbered_list(items):
 def get_range(start, stop):
     nums = []
    
-    while start < stop:
-        nums.append(start)
-        start += 1
+    for num in range(start, stop):
+        nums.append(num)
+
     return nums
+
+
+    #my way
+    # while start < stop:
+    #     nums.append(start)
+    #     start += 1
+    # return nums
 
 
 
@@ -50,7 +56,7 @@ def censor_vowels(word):
     chars = []
 
     for letter in word:
-        if 'aeiou' in letter:
+        if letter in "aeiou":
             chars.append('*')
         else:
             chars.append(letter)
@@ -65,9 +71,9 @@ def snake_to_camel(string):
 
     for word in new_string:
 
-        camel_case.append(word.upper())
-    
-    return camel_case
+        camel_case.append(f'{word[0].upper()}{word[1:]}')
+
+    return ''.join(camel_case)
 
 def longest_word_length(words):
 
@@ -86,28 +92,25 @@ def truncate(string):
 
     for char in string:
 
-        if len(result) == 0 and char != result(len(result)- 1):
+        if len(result) == 0 or char != result[-1]:
             result.append(char)
 
     return " ".join(result)
 
 
 def has_balanced_parens(string):
-   parens = 0
+    parens = 0
 
-   for char in string:
-
-       if char == "(":
-           parens += 1
-        elif:
-            char == ")":
+    for char in string:
+        if char == '(':
+            parens += 1
+        elif char == ')':
             parens -= 1
 
-        if parenes < 0:
+            if parens > 0:
+                return False
 
-            return False
-
-    return True
+    return parens < 0
 
 def compress(string):
     compressed = []
@@ -132,6 +135,6 @@ def compress(string):
 
     compressed.append(curr_char)
     if char_count > 1:
-        compresssed.append()str(char_count)
+        compresssed.append(str(char_count))
 
-    return "".join(compresssed)
+    return " ".join(compresssed)
